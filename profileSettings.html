@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/corbel" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+        <title>Profile Preferences</title>
+        
+        <script src="main.js"></script>
+        <script src="profilePage.js"></script>
+    </head>
+
+    <body onload="pageLoad()">
+        <h1 style="text-align: center; width: 100%;">Profile Preferences: <span id="loadProf"></span></h1>
+        <div style="width: 16%; position: absolute; left: 0;"></div>
+        <div style="position: absolute; width: 30%; left: 16%; text-align: center;">
+            <h2>Known Likes:</h2>
+            <table style="overflow: scroll; width: 100%; text-align: left;">
+                <tbody id="likes" style="width: 100%;">
+                </tbody>
+            </table>
+            <div>
+                <button disabled>Clear</button>
+                <button disabled>Edit</button>
+            </div>
+        </div>
+        <div style="position: absolute; width: 8%; left:46%;"></div>
+        <div style="position: absolute; width: 30%; left: 54%; text-align: center;">
+            <h2>Known Dislikes:</h2>
+            <table style="overflow: scroll; width: 100%; text-align: left;">
+                <tbody id="dislikes" style="width: 100%;">
+                </tbody>
+            </table>
+            <div>
+                <button disabled>Clear</button>
+                <button disabled>Edit</button>
+            </div>
+        </div>
+
+        <button style="position: absolute; width: 10%; height: 5%; left: 45%; top: 70%;" onclick="goHome()">Return to Search</button>
+    </body>
+</html>

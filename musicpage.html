@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/corbel" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+        <title>Suggested Song</title>
+        
+        <script id="vshader" type="x-shader/x-vertex">
+            attribute vec4 vPosition;
+            attribute vec4 vColor;
+
+            varying vec4 fColor;
+            uniform mat4 modelViewMat;
+            uniform mat4 projectionMat;
+
+            void main(){
+                gl_Position = projectionMat * modelViewMat * vPosition;
+
+                gl_PointSize = 10.0;
+                fColor = vColor;
+            }
+
+        </script>
+
+        <script id="fshader" type="x-shader/x-fragment">
+            precision mediump float;
+
+            varying vec4 fColor;
+
+            void main(){
+                gl_FragColor = fColor;
+            }
+        </script>
+        
+        <script type="text/javascript" src="lib/webgl-utils.js"></script>
+        <script type="text/javascript" src="lib/initShaders.js"></script>
+        <script type="text/javascript" src="lib/MV.js"></script>
+        <script type="text/javascript" src="lib/glHelp.js"></script>
+
+        <script src="main.js"></script>
+        <script src="musicpage.js"></script>
+        
+    </head>
+
+    <body id="body" onload="musicPageLoad()">
+        <div id="leftContent" style="width: 70%; height: 100%;  position: absolute; left: 15%; top: 15%;" >
+            <button onclick="like()" id="like" class="upDownButton" style="position: absolute; top: 5%; left: 12%">
+                <img style="width: 64px; height: 64px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Thumb_up_icon_2.svg/1200px-Thumb_up_icon_2.svg.png" alt="">
+            </button>
+            <button onclick="dislike()" id="dislike" class="upDownButton" style="position: absolute; top: 20%; left: 12%">
+                <img style="width: 64px; height: 64px;" src="https://cdn-icons-png.flaticon.com/512/25/25395.png" alt="">
+            </button>
+
+            
+            
+            <div id="belowImg" style="position: absolute; left:25%; text-align: center; width: 40%; height:30%">
+                <img id="album">
+                <h1 class="remove-margin" id="title">SONG TITLE</h1>
+                <h3 class="remove-margin" style="margin-bottom: 30px;" id="artist">ARTIST</h3>
+                <p><b>Details:</b></p>
+                <p>Album: <span id="albumField"></span></p>
+                <p>Genre: <span id="genreField"></span></p>
+                <p>BPM: <span id="bpmField"></span></p>
+                <p>More Eventually</p>
+                <button style="height: 10%; width: 80%;" onclick="goHome()">Back to Search</button>
+            </div>
+        
+            <canvas id="webgl" height="300" width="300" style="border: 1px solid black; position: absolute; top: 40%">
+                Please use a browser that supports the "canvas" tag.
+            </canvas>
+
+            <h1 style="position: absolute; top:32%">Search Visualizer (WIP)</h1>
+            <h3 style="position: absolute; left: 3%; top:35.5%">Click a dot to find a new song</h3>
+        
+        </div>
+
+        <div id="vertSpacer" style="position: absolute; border: 1px solid black; height: 80%; top: 10%; right: 30%;" ></div>
+        <div id="rightContent" style="position: absolute; top: 15%; right: 8%">
+            <h2 class="remove-margin">Others like you liked:</h2>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+
+            <h2 class="remove-margin">Your Friends also liked:</h2>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+            <div>
+                <img src="none" alt="">
+                <p>Song title - Artist</p>
+            </div>
+        </div>
+
+        <div id="nonmenu" class="nonmenu" onclick="hamburger()"></div>
+
+        <div id="burger-menu" class="burger-menu">
+            <div class="profile">
+                <p id="userWelcome">Welcome, Casey</p>
+            </div>
+            <div style="padding-top: 30%;">
+                <div class="left10">
+                    <p>Current profile:</p>
+                    <p id="currentProfile">For me</p>
+                </div>
+                <div style="border: 1px solid black; width: 80%; left: 10%; top: 25%; position: absolute;"></div>
+                <div class="left10" style="top: 26%">
+                    <p>Switch profile:</p>
+                    <p id="altProfile" onclick="changeProfile()" style="border: 1px solid blue;">Rock only</p>
+                </div>
+                <button class="left10" style="top: 37%; width: 60%; height: 3%;" disabled="true">New Profile</button>
+                <div class="left10" style="top: 40%">
+                    <p>Friends:</p>
+                    <p>OTHER USER</p>
+                    <p>OTHER USER</p>
+                    <p>OTHER USER</p>
+                    <p>OTHER USER</p>
+                </div>
+
+                <button class="profButton" onclick="profilePrefButton()">Profile Preferences</button>
+                <button class="userButton" onclick="userPrefButton()">User Preferences</button>
+            </div>
+        </div>
+        <button id="hamburger" class="hamburger" onclick="hamburger()"><img src="hamburger.png"/></button>
+    </body>
+</html>

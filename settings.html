@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/corbel" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+        <title>Settings</title>
+        
+        <script src="main.js"></script>
+        <script src="musicpage.js"></script>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;" class="remove-margin">Settings</h1>
+        <div style="position: absolute; left: 10%; top:5%; width: 40%;">
+            <div style="margin-bottom: 3%;">
+                <h3 class="remove-margin" style="float: left;">Language</h3>
+                <select style="float: right;">
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                </select>
+                <br style="clear:both" />
+            </div>
+            <h2 style="margin-bottom: 10px;">Profiles</h2>
+            <div style="margin-bottom: 5px;">
+                <h4 style="float: left;" class="remove-margin">For me</h4>
+                <button disabled style="float: right;">Delete</button>
+                <br style="clear:both" />
+            </div>
+            <div style="margin-bottom: 5px;">
+                <h4 class="remove-margin" style="float: left;" >Rock only</h4>
+                <button disabled style="float: right;">Delete</button>
+                <br style="clear:both" />
+            </div>
+
+            <button disabled>Create New Profile</button>
+        </div>
+
+        <button style="position: absolute; width: 10%; height: 5%; left: 45%; top: 70%;" onclick="goHome()">Back to Home</button>
+    </body>
+</html>
