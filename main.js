@@ -49,7 +49,11 @@ function search(){
 }
 
 var searchAxes = [  ["BPM", "text", "160"], 
-                    ["Genre", "select", ["Rock", "Punk"]]
+                    ["Genre", "select", ["Rock", "Punk", "Pop", "Indie Rock", "Country"]],
+                    ["Mood", "select", ["Upbeat", "Sad"]],
+                    ["Song Name", "text", "Song Name"],
+                    ["Album", "text", "Album Name"],
+                    ["Artist", "text", "Artist Name"]
                  ];
 
 
